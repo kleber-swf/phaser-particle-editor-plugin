@@ -74,7 +74,7 @@ const varConfig = merge([
   {
     output: {
       filename: 'plugin.min.js',
-      library: 'ParticleEditorPlugin',
+      library: 'ParticleEditor',
       libraryTarget: 'var',
       umdNamedDefine: false,
     },
