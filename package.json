@@ -39,6 +39,9 @@
   "contributors": [
     "Kleber Silva <kleber.swf@gmail.com>"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "dependencies": {
     "phaser-ce": "^2.9.4"
