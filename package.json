@@ -3,10 +3,12 @@
   "version": "1.0.0-alpha.21",
   "description": "Phaser Particle Editor Plugin",
   "main": "dist/library.js",
+  "types": "typescript/index.d.ts",
   "scripts": {
-    "build": "concurrently 'npm run build-var' 'npm run build-umd'",
+    "build": "concurrently 'npm run build-var' 'npm run build-umd'; npm run build-ts",
     "build-umd": "webpack --config config/webpack.config.js --env umd",
-    "build-var": "webpack --config config/webpack.config.js --env var"
+    "build-var": "webpack --config config/webpack.config.js --env var",
+    "build-ts": "tsc"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "expose-loader": "^0.7.4",
     "git-revision-webpack-plugin": "^2.5.1",
+    "typescript": "^4.3.5",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1"
   },
