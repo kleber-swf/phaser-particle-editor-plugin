@@ -3,12 +3,6 @@ import { createImageFromBitmapData } from './utils'
 import Phaser from 'phaser'
 
 export default class ParticleEffect extends Phaser.Group {
-  /**
-   * @param {Phaser.Game} game
-   * @param {any} particleData
-   * @param {number} x
-   * @param {number} y
-   */
   constructor (game, particleData, x, y) {
     super(game)
     this.x = x
@@ -45,9 +39,6 @@ export default class ParticleEffect extends Phaser.Group {
     }
   }
 
-  /**
-   * @param {any} particleData
-   */
   _initEmitters (particleData) {
     const emitters = particleData.emitters
     for (let emitterName in emitters) {
@@ -59,39 +50,20 @@ export default class ParticleEffect extends Phaser.Group {
     }
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   * @returns {ExtendedEmitter}
-   */
   _createEmitter (name, properties) {
     return new ExtendedEmitter(this.game, name, properties)
   }
 
-  /**
-   * @param {ExtendedEmitter} child
-   * @param {boolean} silent
-   * @param {number} index
-   */
   add (child, silent, index) {
     super.add(child, silent, index)
     this._emitersMap.set(child.name, child)
   }
 
-  /**
-   * @param {ExtendedEmitter} child
-   * @param {boolean} destroy
-   * @param {boolean} silent
-   */
   remove (child, destroy, silent) {
     super.remove(child, destroy, silent)
     this._emitersMap.delete(child.name)
   }
 
-  /**
-   * @param {ExtendedEmitter} emitter
-   * @param {any} properties
-   */
   _emit (emitter, properties) {
     if (!properties.enabled) {
       return
@@ -128,28 +100,15 @@ export default class ParticleEffect extends Phaser.Group {
     }
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   */
   _onEmitterImageUpdate (name, properties) {
     this._recreateEmitter(name, properties)
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   */
   _recreateEmitter (name, properties) {
     this.removeEmitter(name)
     this.addEmitter(name, properties)
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   * @param {boolean} autoEmit
-   */
   addEmitter (name, properties, autoEmit = true) {
     createImageFromBitmapData(
       this.game,
@@ -181,17 +140,10 @@ export default class ParticleEffect extends Phaser.Group {
     )
   }
 
-  /**
-   * @param {string} name
-   */
   removeEmitter (name) {
     this.remove(this._emitersMap.get(name))
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   */
   updateEmitterImage (name, properties) {
     createImageFromBitmapData(
       this.game,
@@ -201,20 +153,12 @@ export default class ParticleEffect extends Phaser.Group {
     )
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   */
   updateEmitterProperties (name, properties) {
     const emitter = this._emitersMap.get(name)
     emitter.applyProperties(properties)
     this._emit(emitter, properties)
   }
 
-  /**
-   * @param {string} name
-   * @param {any} properties
-   */
   updateEmitterOption (name, properties) {
     this._recreateEmitter(name, properties)
   }

@@ -2,16 +2,6 @@ const imageData = {}
 imageData.isLoading = false
 imageData.queue = []
 
-/**
- *
- * @param {Phaser.Game} game
- * @param {string} bitmapData
- * @param {string} key
- * @param {Function} oncreate
- * @param {Function} onerror
- * @param {boolean} force
- * @returns
- */
 export const createImageFromBitmapData = (
   game,
   bitmapData,
