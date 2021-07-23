@@ -1,4 +1,4 @@
-export default class ParticleEditorPlugin {
+export class ParticleEditorPlugin extends Phaser.Plugin {
     /**
      *
      * @param {Phaser.Game} game

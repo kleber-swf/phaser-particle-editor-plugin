@@ -1,4 +1,4 @@
-export default class ParticleEffect {
+export class ParticleEffect extends Phaser.Group {
     /**
      * @param {Phaser.Game} game
      * @param {any} particleData

@@ -1,4 +1,4 @@
-export default class ExtendedParticle {
+export class ExtendedParticle extends Phaser.Particle {
     /**
      * @param {Phaser.Game} game
      * @param {number} x

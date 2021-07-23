@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-export default class ExtendedParticle extends Phaser.Particle {
+export class ExtendedParticle extends Phaser.Particle {
   /**
    * @param {Phaser.Game} game
    * @param {number} x

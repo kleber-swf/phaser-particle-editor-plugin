@@ -1,7 +1,7 @@
 import ParticleEffect from './ParticleEffect'
 import Phaser from 'phaser'
 
-export default class ParticleEditorPlugin extends Phaser.Plugin {
+export class ParticleEditorPlugin extends Phaser.Plugin {
   /**
    *
    * @param {Phaser.Game} game

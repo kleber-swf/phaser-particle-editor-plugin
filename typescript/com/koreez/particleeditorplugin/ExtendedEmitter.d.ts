@@ -1,4 +1,4 @@
-export default class ExtendedEmitter {
+export class ExtendedEmitter extends Phaser.Particles.Arcade.Emitter {
     /**
      * @param {Phaser.Game} game
      * @param {string} name

@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import ExtendedParticle from './ExtendedParticle'
 
-export default class ExtendedEmitter extends Phaser.Particles.Arcade.Emitter {
+export class ExtendedEmitter extends Phaser.Particles.Arcade.Emitter {
   /**
    * @param {Phaser.Game} game
    * @param {string} name

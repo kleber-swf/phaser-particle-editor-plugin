@@ -2,7 +2,7 @@ import ExtendedEmitter from './ExtendedEmitter'
 import { createImageFromBitmapData } from './utils'
 import Phaser from 'phaser'
 
-export default class ParticleEffect extends Phaser.Group {
+export class ParticleEffect extends Phaser.Group {
   /**
    * @param {Phaser.Game} game
    * @param {any} particleData
