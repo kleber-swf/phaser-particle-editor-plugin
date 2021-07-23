@@ -1,6 +1,14 @@
 import Phaser from 'phaser'
 
 export default class ExtendedParticle extends Phaser.Particle {
+  /**
+   * @param {Phaser.Game} game
+   * @param {number} x
+   * @param {number} y
+   * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key
+   * @param {string|number} frame
+   * @param {any} particleArguments
+   */
   constructor (game, x, y, key, frame, particleArguments) {
     super(game, x, y, key, frame)
     this.particleArgumentsColor = particleArguments['color'] || null
@@ -20,7 +28,7 @@ export default class ExtendedParticle extends Phaser.Particle {
           this.particleArgumentsColor.end,
           this.particleArgumentsColor.rate,
           Phaser.Easing[this.particleArgumentsColor.ease][
-            this.particleArgumentsColor.easeMode
+          this.particleArgumentsColor.easeMode
           ],
           true,
           this.particleArgumentsColor.delay,
@@ -32,6 +40,9 @@ export default class ExtendedParticle extends Phaser.Particle {
     super.onEmit()
   }
 
+  /**
+   * @param {Phaser.Tween} tween
+   */
   updateColor (tween) {
     Phaser.Color.updateColor(tween.target)
     this.tint = Phaser.Color.getColor32(
@@ -42,6 +53,9 @@ export default class ExtendedParticle extends Phaser.Particle {
     )
   }
 
+  /**
+   * @param {Phaser.Tween} tween
+   */
   onTweenComplete (tween) {
     this.game.tweens.remove(tween)
   }

@@ -2,6 +2,11 @@ import ParticleEffect from './ParticleEffect'
 import Phaser from 'phaser'
 
 export default class ParticleEditorPlugin extends Phaser.Plugin {
+  /**
+   *
+   * @param {Phaser.Game} game
+   * @param {Phaser.Group} parent
+   */
   constructor (game, parent) {
     super(game, parent)
     this.addParticleFactory()
@@ -17,6 +22,10 @@ export default class ParticleEditorPlugin extends Phaser.Plugin {
     }
   }
 
+  /**
+   * @param {string|object} key
+   * @returns {object}
+   */
   getData (key) {
     if (typeof key === 'string') {
       return this.game.cache.getJSON(key)
