@@ -29,6 +29,9 @@ export interface ParticleArguments {
 	lifespan: ParticleRange;
 	startRotation: ParticleRange;
 	anchor: Point;
+	frames?: number[];
+	frameRate?: number;
+	initialFrameIndex?: number;
 }
 
 export interface EmitterProperties {

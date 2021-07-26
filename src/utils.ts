@@ -5,7 +5,6 @@ const imageData: { isLoading: boolean, queue: any[] } = {
 
 export function createImageFromBitmapData(game: Phaser.Game, bitmapData: string, key: string,
   oncreate?: () => void, onerror?: () => void, force = true) {
-  console.log({ game, key, bitmapData });
   if (!force && game.cache.checkImageKey(key)) {
     onImageLoad(oncreate);
     return;
