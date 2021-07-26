@@ -1,49 +1,47 @@
 {
-  "name": "@kleber-swf/phaser-particle-editor-plugin",
-  "version": "1.0.5",
-  "description": "Phaser Particle Editor Plugin",
-  "main": "dist/library.js",
-  "types": "typescript/index.d.ts",
-  "scripts": {
-    "build": "concurrently 'npm run build-var' 'npm run build-umd'",
-    "build-umd": "webpack --config config/webpack.config.js --env umd",
-    "build-var": "webpack --config config/webpack.config.js --env var",
-    "build-ts": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/koreezgames/phaser-particle-editor-plugin.git"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "clean-webpack-plugin": "^0.1.17",
-    "concurrently": "^3.5.1",
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "expose-loader": "^0.7.4",
-    "git-revision-webpack-plugin": "^2.5.1",
-    "typescript": "^4.3.5",
-    "webpack": "^3.10.0",
-    "webpack-merge": "^4.1.1"
-  },
-  "author": "Koreez LLC <hello@koreez.com>",
-  "contributors": [
-    "Kleber Silva <kleber.swf@gmail.com>"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "phaser-ce": "^2.9.4"
-  }
+	"name": "@kleber-swf/phaser-particle-editor-plugin",
+	"version": "1.0.5",
+	"description": "Phaser Particle Editor Plugin",
+	"input": "src/index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "Kleber Silva <kleber.swf@gmail.com>",
+	"contributors": [
+		"Koreez LLC <hello@koreez.com>"
+	],
+	"license": "MIT",
+	"scripts": {
+		"compile": "rollup -c rollup.config.js",
+		"dev": "npm run compile -- -watch",
+		"lint": "eslint --cache --fix --color --ext .js --ext .ts \"src\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kleber-swf/phaser-particle-editor-plugin.git"
+	},
+	"dependencies": {
+		"phaser-ce": "^2.9.4"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^17.1.0",
+		"@rollup/plugin-node-resolve": "^11.2.0",
+		"@rollup/plugin-replace": "^2.4.1",
+		"@rollup/plugin-typescript": "^6.1.0",
+		"@typescript-eslint/eslint-plugin": "^4.17.0",
+		"@typescript-eslint/parser": "^4.17.0",
+		"barrelsby": "^2.2.0",
+		"eslint": "^7.21.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-unused-imports": "^1.1.0",
+		"rollup": "^2.41.5",
+		"rollup-plugin-browsersync": "^1.3.1",
+		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-typescript-paths": "^1.2.2",
+		"tslib": "^2.3.0",
+		"typescript": "^4.2.3"
+	}
 }
