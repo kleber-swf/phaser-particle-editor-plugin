@@ -114,17 +114,19 @@ export class ParticleEffect extends Phaser.Group {
 	}
 
 	private _recreateEmitter(name: string, properties: EmitterProperties) {
+		name = properties.key || name;
 		this.removeEmitter(name);
 		this.addEmitter(name, properties);
 	}
 
 	public addEmitter(name: string, properties: EmitterProperties, autoEmit = true) {
+		const key = properties.key || name;
 		createImageFromBitmapData(
 			this.game,
 			properties[name],
-			name,
+			key,
 			() => {
-				const emitter = this._createEmitter(name, properties);
+				const emitter = this._createEmitter(key, properties);
 				this.add(emitter);
 				emitter.makeParticles(
 					emitter.name,
@@ -134,7 +136,7 @@ export class ParticleEffect extends Phaser.Group {
 					properties.collideWorldBounds,
 					properties.particleArguments
 				);
-				this.updateEmitterProperties(name, properties);
+				this.updateEmitterProperties(key, properties);
 				if (autoEmit) {
 					this._emit(emitter, properties);
 				}

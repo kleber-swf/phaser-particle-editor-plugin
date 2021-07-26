@@ -32,6 +32,7 @@ export interface ParticleArguments {
 }
 
 export interface EmitterProperties {
+	key?: string;
 	width: number;
 	height: number;
 	gravityX: number;
