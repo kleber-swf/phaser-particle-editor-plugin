@@ -1,6 +1,6 @@
 {
 	"name": "@kleber-swf/phaser-particle-editor-plugin",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "Phaser Particle Editor Plugin",
 	"input": "src/index.ts",
 	"main": "dist/index.js",
