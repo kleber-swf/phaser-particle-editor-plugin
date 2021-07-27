@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 export default {
 	input: pkg.input,
@@ -13,6 +13,7 @@ export default {
 		typescript({
 			rootDir: './src',
 			tsconfig: 'tsconfig.json',
+			outDir: './dist',
 			declaration: true,
 			declarationMap: true,
 			sourceMap: true,
