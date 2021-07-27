@@ -1,6 +1,6 @@
 {
 	"name": "@kleber-swf/phaser-particle-editor-plugin",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "Phaser Particle Editor Plugin",
 	"input": "src/index.ts",
 	"main": "dist/index.js",
@@ -14,7 +14,9 @@
 	],
 	"license": "MIT",
 	"files": [
-		"dist"
+		"dist",
+		"src",
+		"config"
 	],
 	"scripts": {
 		"build": "rollup -c config/rollup.config.js",
