@@ -26,7 +26,7 @@ export class ExtendedParticle extends Phaser.Particle {
 				colorRange.start.b
 			);
 
-			const tween = this.game.add
+			this.game.add
 				.tween(startColor)
 				.to(
 					colorRange.end,
@@ -34,10 +34,8 @@ export class ExtendedParticle extends Phaser.Particle {
 					Phaser.Easing[colorRange.ease][colorRange.easeMode],
 					true,
 					colorRange.delay
-				);
-
-			tween.onUpdateCallback(this.updateColor.bind(this));
-			tween.onComplete.add(this.onTweenComplete, this);
+				)
+				.onUpdateCallback(this.updateColor.bind(this));
 		}
 		super.onEmit();
 	}
@@ -50,10 +48,6 @@ export class ExtendedParticle extends Phaser.Particle {
 			tween.target.g,
 			tween.target.b
 		);
-	}
-
-	private onTweenComplete(tween: Phaser.Tween) {
-		this.game.tweens.remove(tween);
 	}
 
 	private readonly _frameRate: number = 24;
