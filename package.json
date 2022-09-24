@@ -20,7 +20,7 @@
 		"build": "rollup -c config/rollup.config.js",
 		"dev": "rollup -w -c config/rollup.config.dev.js",
 		"lint": "eslint --cache --fix --color --ext .js --ext .ts \"src\"",
-		"prepublish": "rm -rf dist; npm run build"
+		"prepublishOnly": "rm -rf dist; npm run build"
 	},
 	"repository": {
 		"type": "git",
