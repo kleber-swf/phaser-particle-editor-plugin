@@ -25,8 +25,7 @@ export class ParticleEffect extends Phaser.Group {
 
 	set emitX(x) {
 		this._emitX = x;
-		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) =>
-			emitter.emitX = emitter.properties.emitX + this.emitX);
+		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) => emitter.emitX = emitter.properties.emitX + this.emitX);
 		// eslint-disable-next-line no-unused-vars
 		// for (const [key, emitter] of this._emitersMap) {
 		// 	emitter.emitX = emitter.properties.emitX + this.emitX;
@@ -37,9 +36,7 @@ export class ParticleEffect extends Phaser.Group {
 
 	set emitY(y) {
 		this._emitY = y;
-		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) =>
-			emitter.emitY = emitter.properties.emitY + this.emitY);
-		// eslint-disable-next-line no-unused-vars
+		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) => emitter.emitY = emitter.properties.emitY + this.emitY);
 		// for (const [key, emitter] of this._emitersMap) {
 		// 	emitter.emitY = emitter.properties.emitY + this.emitY;
 		// }
@@ -47,13 +44,14 @@ export class ParticleEffect extends Phaser.Group {
 
 	private _initEmitters(particleData: ParticleData) {
 		const emitters = particleData.emitters;
-		for (const emitterName in emitters) {
-			if (!emitters.hasOwnProperty(emitterName)) {
-				continue;
-			}
-			const emitterProperties = emitters[emitterName];
-			this.addEmitter(emitterName, emitterProperties);
-		}
+		Object.entries(emitters).forEach((e) => this.addEmitter(e[0], e[1]));
+		// for (const emitterName in emitters) {
+		// 	if (!emitters.hasOwnProperty(emitterName)) {
+		// 		continue;
+		// 	}
+		// 	const emitterProperties = emitters[emitterName];
+		// 	this.addEmitter(emitterName, emitterProperties);
+		// }
 	}
 
 	private _createEmitter(name: string, properties: EmitterProperties) {
@@ -95,14 +93,14 @@ export class ParticleEffect extends Phaser.Group {
 
 	public update() {
 		super.update();
-		for (const emitter of this._collidebleEmitters) {
-			this._arcade.collide(emitter);
-		}
+		Object.keys(this._collidebleEmitters).forEach(k => this._arcade.collide(k));
+		// for (const emitter of this._collidebleEmitters) {
+		// 	this._arcade.collide(emitter);
+		// }
 	}
 
 	public emit() {
-		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) =>
-			this._emit(emitter, emitter.properties));
+		Object.values(this._emitersMap).forEach((emitter: ExtendedEmitter) => this._emit(emitter, emitter.properties));
 		// eslint-disable-next-line no-unused-vars
 		// for (const [key, emitter] of this._emitersMap) {
 		// 	this._emit(emitter, emitter.properties);

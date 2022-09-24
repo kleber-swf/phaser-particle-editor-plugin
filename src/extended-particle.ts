@@ -56,7 +56,6 @@ export class ExtendedParticle extends Phaser.Particle {
 		this.game.tweens.remove(tween);
 	}
 
-
 	private readonly _frameRate: number = 24;
 	private readonly _frames: (string | number)[];
 	private _frameIndex: number;

@@ -63,7 +63,7 @@ export class ExtendedEmitter extends Phaser.Particles.Arcade.Emitter {
 	}
 
 	public resetParticle(particle: ExtendedParticle, x: number, y: number) {
-		super['resetParticle'](particle, x, y);
+		super.resetParticle(particle, x, y);
 		if (this.particleArgumentsColor) {
 			particle.tint = Phaser.Color.getColor32(
 				particle.alpha,
