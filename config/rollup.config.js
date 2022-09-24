@@ -14,10 +14,8 @@ export default [
 		treeshake: false,
 		plugins: [
 			commonjs(),
-			typescript({
-				tsconfig: './tsconfig.json',
-			}),
-			terser()
+			typescript({ tsconfig: './tsconfig.json' }),
+			terser(),
 		],
 		output: [
 			{
@@ -28,7 +26,7 @@ export default [
 				globals: {
 					'phaser-ce': 'Phaser',
 				},
-			}
+			},
 		],
 	},
 	{
@@ -54,5 +52,5 @@ export default [
 			esModule: false,
 			sourcemap: true,
 		},
-	}
+	},
 ];

@@ -14,9 +14,7 @@
 	],
 	"license": "MIT",
 	"files": [
-		"dist",
-		"src",
-		"config"
+		"dist"
 	],
 	"scripts": {
 		"build": "rollup -c config/rollup.config.js",
@@ -29,6 +27,7 @@
 		"url": "https://github.com/kleber-swf/phaser-particle-editor-plugin.git"
 	},
 	"dependencies": {
+		"@kleber-swf/phaser-particle-editor-plugin": "^1.0.12",
 		"phaser-ce": "^2.9.4"
 	},
 	"devDependencies": {
